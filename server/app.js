@@ -5,6 +5,7 @@ const userRouter = require('./routes/userRouter.js')
 const otpRouter = require('./routes/otpRoute.js')
 const adminRoute = require('./routes/adminRoute.js')
 const editorRoute = require('./routes/editorRoute.js')
+const welcomeRoute = require('./routes/welcomeRoute.js')
 require('dotenv').config()
 
 const app = express()
@@ -19,6 +20,7 @@ app.use('/api/users', userRouter)
 app.use('/api', otpRouter)
 app.use('/api/admin', adminRoute)
 app.use('/api/editor', editorRoute)
+app.use(welcomeRoute)
 
 const initializationFunction = async () => {
     try {
@@ -30,5 +32,6 @@ const initializationFunction = async () => {
         console.log("Initialization Error: ", err.message)
     }
 }
+
 
 initializationFunction()
