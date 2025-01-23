@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
         })
         if(user == undefined){
             res.status(404)
-            res.json({error_msg: "This email doesn't exists"})
+            res.json({error_msg: "This email doesn't exist"})
         }
         else {
             //console.log(user)
@@ -69,7 +69,7 @@ router.post('/login', async (req, res) => {
             }
             else {
                 res.status(400)
-                res.json({error_msg: "Email and Password doesn't start"})
+                res.json({error_msg: "Email and Password doesn't match"})
             }
         }
     } catch (err){
@@ -167,7 +167,7 @@ router.put('/edit-blog', AuthunticationFunction, async (req, res) => {
 
 router.put('/assign-editor', AuthunticationFunction, async (req, res) => {
     try {
-        const {edditorId, blogId} = await req.body
+        const {editorId, blogId} = await req.body
         const userId = await req.userId
         const user = await User.findOne({user_id: userId})
         if(user.role === 'Admin'){
@@ -178,7 +178,7 @@ router.put('/assign-editor', AuthunticationFunction, async (req, res) => {
             } else {
                 const result = await Blog.updateOne({blog_id: blogId}, {
                     $set: {
-                        blog_editor_id: edditorId
+                        blog_editor_id: editorId
                     }
                 })
                 res.status(200)

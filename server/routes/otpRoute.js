@@ -55,7 +55,7 @@ router.post("/verify-email", async (req, res) => {
             ]
         })
         if(isOtpCorrect == undefined){
-            res.status(200)
+            res.status(400)
             res.json({error_msg: "Invalid OTP"})
         }
         else {
