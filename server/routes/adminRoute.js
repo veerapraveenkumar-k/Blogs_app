@@ -4,7 +4,7 @@ const {v4: uuidV4} = require('uuid')
 const AuthunticationFunction = require('../middlewareFunctions/authentication')
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 const router = express.Router()
 

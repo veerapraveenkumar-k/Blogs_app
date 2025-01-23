@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/userModel')
 const Comment = require('../models/commentsModel')
 const {v4: uuidV4} = require('uuid')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const AuthunticationFunction = require('../middlewareFunctions/authentication')
 
